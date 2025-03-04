@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.beans.Transient;
+
 
 public class DoublyLinkedListTest {
     /**
@@ -45,27 +47,55 @@ public class DoublyLinkedListTest {
 
     // Tests for getFirst
 
+    /**
+     * @author Krishaan Bhagat
+     * @see
+     */
+    @Test
+    public void testGetFirst() {
+
+        list.addLast(1);
+        list.addLast(2); 
+        assertEquals(1, list.getFirst());
+
+        list.addFirst(3);
+        assertEquals(3, list.getFirst());
+    }
+
     // Tests for getLast
 
     // Tests for isEmpty
 
     /**
-     * @author
+     * @author Krishaan Bhagat
      * @see
      */
     @Test
     public void testIsEmptyWhenCreated() {
+
+        assertEquals(list.isEmpty(), true);
+
+        list.addFirst(0);
+        assertEquals(list.isEmpty(), false);
+
+        list.removeFirst();
+        assertEquals(list.isEmpty(), true);
     }
 
     // Tests for add
 
     /**
-     * @author
+     * @author Krishaan Bhagat
      * @see
      */
     @Test
     public void testAddAtIndexOutOfBoundsThrowsException() {
-        fail("Not yet implemented");
+
+        list.add(0, 1);
+        list.add(1, 2);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> list.add(3, 3));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.add(-1, 3));
     }
 
     // Tests for addFirst
@@ -82,12 +112,19 @@ public class DoublyLinkedListTest {
     // Tests for addLast
 
     /**
-     * @author
+     * @author Krishaan Bhagat
      * @see
      */
     @Test
     public void testAddLastAddsElement() {
-        fail("Not yet implemented");
+
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+
+        assertEquals(list.size(), 3);
+        assertEquals(list.get(2), 3);
+        assertEquals(list.get(0), 1);
     }
 
     // Tests for remove
@@ -103,10 +140,27 @@ public class DoublyLinkedListTest {
 
     // Tests for removeFirst
 
+    /**
+     * @author Krishaan Bhagat
+     * @see
+     */
+    @Test
+    public void testRemoveFirst() {
+        
+    }
+
     // Tests for removeLast
 
     // Tests for size
 
     // Tests for set
 
+    /**
+     * @author Krishaan Bhagat
+     * @see
+     */
+    @Test
+    public void testSet() {
+        
+    }
 }
