@@ -57,9 +57,10 @@ public class DoublyLinkedListTest {
         list.addLast(1);
         list.addLast(2); 
         assertEquals(1, list.getFirst());
-
+        assertEquals(list.size(), 2);
         list.addFirst(3);
         assertEquals(3, list.getFirst());
+        assertEquals(list.size(), 3);
     }
 
     // Tests for getLast
@@ -125,6 +126,7 @@ public class DoublyLinkedListTest {
         assertEquals(list.size(), 3);
         assertEquals(list.get(2), 3);
         assertEquals(list.get(0), 1);
+        assertEquals(list.get(1), 2);
     }
 
     // Tests for remove
@@ -146,7 +148,17 @@ public class DoublyLinkedListTest {
      */
     @Test
     public void testRemoveFirst() {
-        
+
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addFirst(3);
+
+        assertEquals(list.removeFirst(), 3);
+        assertEquals(list.size(), 2);
+        assertEquals(list.removeFirst(), 2);
+        assertEquals(list.size(), 1);
+        assertEquals(list.removeFirst(), 1);
+        assertEquals(list.isEmpty(), true);
     }
 
     // Tests for removeLast
@@ -161,6 +173,15 @@ public class DoublyLinkedListTest {
      */
     @Test
     public void testSet() {
-        
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+
+        list.set(1, 4);
+
+        assertEquals(list.get(1), 4);
+        assertEquals(list.size(), 3);
+        assertEquals(list.get(0), 1);
+        assertEquals(list.get(2), 3);
     }
 }
