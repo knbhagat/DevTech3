@@ -55,10 +55,11 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Krishaan Bhagat
-     * @see
+     * @see GetFirst
      */
     @Test
     public void testGetFirst() {
+        if (SHOULD_FAIL) list = new GetFirst<>();
 
         list.addLast(1);
         list.addLast(2); 
@@ -91,10 +92,11 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Krishaan Bhagat
-     * @see
+     * @see IsEmptyWhenCreated
      */
     @Test
     public void testIsEmptyWhenCreated() {
+        if (SHOULD_FAIL) list = new IsEmptyWhenCreated<>();
 
         assertEquals(list.isEmpty(), true);
 
@@ -109,10 +111,11 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Krishaan Bhagat
-     * @see
+     * @see AddAtIndexOutOfBoundsThrowsException
      */
     @Test
     public void testAddAtIndexOutOfBoundsThrowsException() {
+        if (SHOULD_FAIL) list = new AddAtIndexOutOfBoundsThrowsException<>();
 
         list.add(0, 1);
         list.add(1, 2);
@@ -143,10 +146,11 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Krishaan Bhagat
-     * @see
+     * @see AddLastAddsElement
      */
     @Test
     public void testAddLastAddsElement() {
+        if (SHOULD_FAIL) list = new AddLastAddsElement<>();
 
         list.addLast(1);
         list.addLast(2);
@@ -184,10 +188,11 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Krishaan Bhagat
-     * @see
+     * @see RemoveFirst
      */
     @Test
     public void testRemoveFirst() {
+        if (SHOULD_FAIL) list = new RemoveFirst<>();
 
         list.addFirst(1);
         list.addFirst(2);
@@ -250,10 +255,12 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Krishaan Bhagat
-     * @see
+     * @see Set
      */
     @Test
     public void testSet() {
+        if (SHOULD_FAIL) list = new Set<>();
+
         list.addLast(1);
         list.addLast(2);
         list.addLast(3);
