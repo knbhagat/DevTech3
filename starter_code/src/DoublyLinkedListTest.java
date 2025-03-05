@@ -3,12 +3,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.NoSuchElementException;
+
 public class DoublyLinkedListTest {
     /**
      * Use this to toggle between using the DoublyLinkedList class and your broken classes
      * You may submit with either true or false.
      */
-    boolean SHOULD_FAIL = true;
+    boolean SHOULD_FAIL = false;
 
     private DoublyLinkedList<Integer> list;
 
@@ -61,6 +63,7 @@ public class DoublyLinkedListTest {
     public void testGetFirst() {
         if (SHOULD_FAIL) list = new GetFirst<>();
 
+        assertThrows(NoSuchElementException.class, () -> list.getFirst());
         list.addLast(1);
         list.addLast(2); 
         assertEquals(1, list.getFirst());
@@ -194,6 +197,8 @@ public class DoublyLinkedListTest {
     public void testRemoveFirst() {
         if (SHOULD_FAIL) list = new RemoveFirst<>();
 
+        assertThrows(NoSuchElementException.class, () -> list.removeFirst());
+
         list.addFirst(1);
         list.addFirst(2);
         list.addFirst(3);
@@ -260,6 +265,8 @@ public class DoublyLinkedListTest {
     @Test
     public void testSet() {
         if (SHOULD_FAIL) list = new Set<>();
+
+        assertThrows(IndexOutOfBoundsException.class, () -> list.set(1, 4));
 
         list.addLast(1);
         list.addLast(2);
