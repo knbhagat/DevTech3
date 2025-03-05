@@ -51,6 +51,9 @@ public class DoublyLinkedListTest {
 
         assertEquals(1, list.get(0));
         assertEquals(3, list.get(2));
+
+        assertThrows(IndexOutOfBoundsException.class, () -> list.get(3));
+        assertThrows(IndexOutOfBoundsException.class, () -> list.get(-1));
     }
 
     // Tests for getFirst
@@ -82,6 +85,8 @@ public class DoublyLinkedListTest {
     @Test
     public void testGetLast() {
         if (SHOULD_FAIL) list = new GetLast<>();
+
+        assertThrows(NoSuchElementException.class, () -> list.getLast());
 
         list.addLast(1);
         list.addLast(2); 
@@ -185,6 +190,9 @@ public class DoublyLinkedListTest {
         assertEquals(list.size(), 1);
         assertEquals(list.remove(0), 2);
         assertEquals(list.isEmpty(), true);
+
+        assertThrows(IndexOutOfBoundsException.class, () -> list.remove(-1)); 
+        assertThrows(IndexOutOfBoundsException.class, () -> list.remove(0));
     }
 
     // Tests for removeFirst
@@ -220,6 +228,9 @@ public class DoublyLinkedListTest {
     @Test
     public void testRemoveLast() {
         if (SHOULD_FAIL) list = new RemoveLast<>();
+
+        assertThrows(NoSuchElementException.class, () -> list.removeLast());
+
         list.addLast(1);
         list.addLast(2);
         list.addLast(3);
