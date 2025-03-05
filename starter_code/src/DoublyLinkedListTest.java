@@ -36,13 +36,20 @@ public class DoublyLinkedListTest {
         assertThrows(IndexOutOfBoundsException.class, () -> list.get(-1));
     }
 
+    // Tests for getAtIndex
+
     /**
-     * @author
+     * @author Norris Chen
      * @see
      */
     @Test
     public void testGetAtIndex() {
-        fail("Not yet implemented");
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+
+        assertEquals(1, list.get(0));
+        assertEquals(3, list.get(2));
     }
 
     // Tests for getFirst
@@ -64,6 +71,20 @@ public class DoublyLinkedListTest {
     }
 
     // Tests for getLast
+
+    /**
+     * @author Norris Chen
+     * @see
+     */
+    @Test
+    public void testGetLast() {
+        list.addLast(1);
+        list.addLast(2); 
+        assertEquals(2, list.getLast());
+
+        list.addLast(3);
+        assertEquals(3, list.getLast());
+    }
 
     // Tests for isEmpty
 
@@ -102,12 +123,18 @@ public class DoublyLinkedListTest {
     // Tests for addFirst
 
     /**
-     * @author
+     * @author Norris Chen
      * @see
      */
     @Test
     public void testAddFirstAddsElement() {
-        fail("Not yet implemented");
+        list.addFirst(1);
+        list.addFirst(2);
+        list.addFirst(3); // 3 2 1
+
+        assertEquals(list.size(), 3);
+        assertEquals(list.get(2), 1);
+        assertEquals(list.get(0), 3);
     }
 
     // Tests for addLast
@@ -132,12 +159,21 @@ public class DoublyLinkedListTest {
     // Tests for remove
 
     /**
-     * @author
+     * @author Norris Chen
      * @see
      */
     @Test
     public void testRemoveAtIndex() {
-        fail("Not yet implemented");
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+
+        assertEquals(list.remove(2), 3);
+        assertEquals(list.size(), 2);
+        assertEquals(list.remove(0), 1);
+        assertEquals(list.size(), 1);
+        assertEquals(list.remove(0), 2);
+        assertEquals(list.isEmpty(), true);
     }
 
     // Tests for removeFirst
@@ -163,7 +199,45 @@ public class DoublyLinkedListTest {
 
     // Tests for removeLast
 
+    /**
+     * @author Norris Chen
+     * @see
+     */
+    @Test
+    public void testRemoveLast() {
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+
+        assertEquals(list.removeLast(), 3);
+        assertEquals(list.size(), 2);
+        assertEquals(list.removeLast(), 2);
+        assertEquals(list.size(), 1);
+        assertEquals(list.removeLast(), 1);
+        assertEquals(list.isEmpty(), true);
+    }
+
+
     // Tests for size
+
+    /**
+     * @author Norris Chen
+     * @see
+     */
+    @Test
+    public void testSize() {
+        list.addLast(3);
+
+        assertEquals(list.size(), 1);
+
+        list.addLast(2);
+        list.addLast(1); // 3 2 1
+
+        assertEquals(list.size(), 3);
+
+        list.removeLast();
+        assertEquals(list.size(), 2);
+    }
 
     // Tests for set
 
