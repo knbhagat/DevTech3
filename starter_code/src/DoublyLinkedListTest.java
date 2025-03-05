@@ -3,15 +3,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.beans.Transient;
-
-
 public class DoublyLinkedListTest {
     /**
      * Use this to toggle between using the DoublyLinkedList class and your broken classes
      * You may submit with either true or false.
      */
-    boolean SHOULD_FAIL = false;
+    boolean SHOULD_FAIL = true;
 
     private DoublyLinkedList<Integer> list;
 
@@ -40,10 +37,12 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Norris Chen
-     * @see
+     * @see GetAtIndex
      */
     @Test
     public void testGetAtIndex() {
+        if (SHOULD_FAIL) list = new GetAtIndex<>();
+
         list.addLast(1);
         list.addLast(2);
         list.addLast(3);
@@ -74,10 +73,12 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Norris Chen
-     * @see
+     * @see GetLast
      */
     @Test
     public void testGetLast() {
+        if (SHOULD_FAIL) list = new GetLast<>();
+
         list.addLast(1);
         list.addLast(2); 
         assertEquals(2, list.getLast());
@@ -124,10 +125,11 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Norris Chen
-     * @see
+     * @see AddFirstAddsElement
      */
     @Test
     public void testAddFirstAddsElement() {
+        if (SHOULD_FAIL) list = new AddFirstAddsElement<>();
         list.addFirst(1);
         list.addFirst(2);
         list.addFirst(3); // 3 2 1
@@ -160,10 +162,12 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Norris Chen
-     * @see
+     * @see RemoveAtIndex
      */
     @Test
     public void testRemoveAtIndex() {
+        if (SHOULD_FAIL) list = new RemoveAtIndex<>();
+
         list.addLast(1);
         list.addLast(2);
         list.addLast(3);
@@ -201,10 +205,11 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Norris Chen
-     * @see
+     * @see RemoveLast
      */
     @Test
     public void testRemoveLast() {
+        if (SHOULD_FAIL) list = new RemoveLast<>();
         list.addLast(1);
         list.addLast(2);
         list.addLast(3);
@@ -222,10 +227,12 @@ public class DoublyLinkedListTest {
 
     /**
      * @author Norris Chen
-     * @see
+     * @see Size
      */
     @Test
     public void testSize() {
+        if (SHOULD_FAIL) list = new Size<>();
+
         list.addLast(3);
 
         assertEquals(list.size(), 1);
